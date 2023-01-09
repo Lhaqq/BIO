@@ -176,11 +176,9 @@ const doc = {
 
         var h = alg.post.hgt;
 
-        var s = 200;
+        var x = ((w * 0.5) - 100).toFixed() + 'px';
 
-        var x = ((w * 0.5) - (s * 0.5)).toFixed() + 'px';
-
-        var y = (dy + (h * 0.4) - (s * 0.5)).toFixed() + 'px';
+        var y = (dy + (h * 0.45) - 100).toFixed() + 'px';
 
         return {x: x, y: y};
       })()
