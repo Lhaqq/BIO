@@ -278,6 +278,18 @@ const doc = {
 
     function display(){
 
+      $('.btn-cls').on('click', function(i, btn){
+
+        doc.action.panelChange('close')
+
+      });
+
+      $('.btn-opn').on('click', function(i, btn){
+
+        doc.action.panelChange('open')
+
+      });
+
       $('.opt').each(function(i, opt){
 
         $(opt).on('mouseover', function(){
@@ -309,6 +321,35 @@ const doc = {
   },
 
   action: {
+
+    panelChange: function(state){
+
+      switch(state){
+
+        case 'open':
+
+          $('#panel').attr('panel','open');
+
+          setTimeout(()=>{
+
+            $('.pan-grd').attr('pan','expand');
+
+          }, 100);
+
+        break;
+        case 'close':
+
+          $('.pan-grd').attr('pan','collapse');
+
+          setTimeout(()=>{
+
+            $('#panel').attr('panel','close');
+          }, 500);
+
+        break;
+      }
+
+    },
 
     logoChange: function(state){
 
