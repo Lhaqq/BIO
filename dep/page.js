@@ -74,7 +74,7 @@ const doc = {
 
     dat.opt = {
 
-      mgW: (alg.menu.avl)? '5px': '2px',
+      mgW: (alg.menu.avl)? '5px':'2px',
 
       img: {
 
@@ -110,7 +110,7 @@ const doc = {
 
       txt: {
 
-        mgH: ((alg.menu.hgt - parseInt($('.opt-txt').css('lineHeight'))) * 0.55).toFixed() + 'px',
+        mgH: ((alg.menu.hgt - parseInt($('.opt-txt').css('lineHeight'))) * 0.5).toFixed() + 'px',
       }
 
     };
@@ -189,12 +189,14 @@ const doc = {
 
   layout: function(){
 
+    /*
     $('.hom').css({
       width: dat.hom.wdt,
       height: dat.hom.hgt,
       margin: dat.hom.mgH+' '+dat.hom.mgW,
     });
 
+    */
 
     $('.lgo').css({
 
@@ -228,7 +230,7 @@ const doc = {
 
     $('.opt-txt').css({
 
-      margin: dat.opt.txt.mgH+' 0px'
+      margin: 'auto 0px'
 
     });
 
@@ -330,16 +332,20 @@ const doc = {
 
           $('#panel').attr('panel','open');
 
+          $('#panel > .mask').attr('mask','show');
+
           setTimeout(()=>{
 
-            $('.pan-grd').attr('pan','expand');
+            $('.sid-pan').attr('pan','expand');
 
           }, 100);
 
         break;
         case 'close':
 
-          $('.pan-grd').attr('pan','collapse');
+          $('.sid-pan').attr('pan','collapse');
+
+          $('#panel > .mask').attr('mask','hide');
 
           setTimeout(()=>{
 
@@ -380,6 +386,22 @@ const doc = {
     optionChange: function(select){
 
       var relate = dat.key;
+
+      $('.spot-ref[tag='+relate+']').css({
+
+        'width':'10px',
+
+        'margin':'0px 10px 0px 10px'
+
+      });
+
+      $('.spot-ref[tag='+select+']').css({
+
+        'width':'20px',
+
+        'margin':'-5px 5px -5px 5px'
+
+      });
 
       function hide(){
 
